@@ -297,13 +297,13 @@ don't fully cover each other in composition.
 
 ---
 
-## SYM-Triage — Symbolic IOCTL Handler Triage
+## SYM-Triage — Static + Pattern-Based IOCTL Handler Triage
 
 The BYOVD ("Bring Your Own Vulnerable Driver") attack class has
 become a dominant post-exploitation primitive, and Microsoft's
 Vulnerable Driver Blocklist exists precisely because manual
-triage does not scale. SYM-Triage combines lightweight symbolic
-execution (Z3-backed) with PE-aware static analysis to extract
+triage does not scale. SYM-Triage combines PE-aware static
+analysis with a pattern-based handler-classification pass to extract
 IOCTL codes from a driver binary, model each handler's input
 buffer parsing, and emit *classifications* — "IOCTL X accepts a
 buffer whose contents reach a kernel-memory write whose address
