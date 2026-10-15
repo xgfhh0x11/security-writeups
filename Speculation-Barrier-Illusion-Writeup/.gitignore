@@ -1,0 +1,33 @@
+# Build outputs
+*.pdf
+*.html
+*.epub
+build/
+_site/
+
+# Pandoc / LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.tex.bak
+
+# CBMC artefacts (the C harness is inline in README.md;
+# if you materialize it as a file and run CBMC locally, ignore the outputs)
+*.gb
+*.goto
+victim_isa
+victim_isa.exe
+*.smt2
+*.cnf
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

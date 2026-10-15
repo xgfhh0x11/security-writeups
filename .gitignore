@@ -1,0 +1,41 @@
+# Build outputs
+*.pdf
+*.html
+*.epub
+build/
+_site/
+
+# Pandoc / LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.tex.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Binaries
+*.sys
+*.exe
+*.dll
+*.bin

@@ -1,0 +1,24 @@
+# Build outputs
+*.pdf
+*.html
+*.epub
+build/
+_site/
+
+# Pandoc / LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.tex.bak
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
