@@ -731,7 +731,7 @@ escape. The fix in kernel 5.17.3 is one line moved.
   pitch into the GitHub repo's `Description` field (the box that
   appears next to the repo title).
 - **CV / portfolio site:** the paragraphs are intentionally
-  uniform in shape, so a list of all fourteen reads as one
-  coherent collection rather than fourteen disjoint blurbs.
+  uniform in shape, so a list of all thirty-nine reads as one
+  coherent collection rather than thirty-nine disjoint blurbs.
 - **Cover letters:** combine the **Portfolio overview** with two
   hand-picked pitches that match the role.
