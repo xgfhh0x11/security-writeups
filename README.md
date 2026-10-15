@@ -4,7 +4,7 @@
 
 All content is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Companion repository: [security-projects](../security-projects/) — working implementations (drivers, fuzzers, analyzers, pipelines).
+> Companion repository: my portfolio of working implementations (drivers, fuzzers, analyzers, pipelines) is indexed at <https://github.com/xgfhh0x11>.
 
 ---
 
