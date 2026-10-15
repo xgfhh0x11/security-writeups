@@ -1,7 +1,7 @@
 ---
 title: "Anatomy of the BitLocker Stack"
 subtitle: "Kernel Driver, TPM Measurement, and the Encrypted Disk"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-17"
 keywords: [BitLocker, fvevol.sys, TPM, PCR measurement, AES-XTS, full-disk encryption, Windows kernel internals, TPM bus sniffing, cold boot, evil maid, key hierarchy, VMK, FVEK]
 cluster_siblings:
@@ -1083,11 +1083,10 @@ rather than an opaque flag.
 
 ---
 
-## Appendix A — Relationship to the Portfolio
+## Appendix A — Related Writeups
 
 This writeup is one entry in a cluster of structural
-observations submitted as the HBO NL low-level security
-application portfolio. The cluster's organising principle is
+observations collected here. The cluster's organising principle is
 the anatomical register: components are described as objects
 with electrical, protocol, structural, and architectural
 properties, and the susceptibilities of compositions are
@@ -1145,7 +1144,7 @@ to AES-XTS and the seal/unseal primitive: the primitives are
 sufficient for their stated contracts and insufficient for
 the composition's actual threat model.
 
-### A.3 What the portfolio is doing
+### A.3 What this collection is doing
 
 Each entry in the cluster names a different composition and
 performs the same operation on it: pulls the layers apart,
@@ -1157,7 +1156,7 @@ entries where the composition is a CPU pipeline, a
 boot-firmware stack, a TEE substrate, a memory subsystem, or
 a kernel-defence model.
 
-The intended contribution to the application portfolio is the
+The intended contribution to this collection is the
 demonstration that this register — anatomical, structural,
 not defensive and not offensive — can be sustained across a
 range of system substrates and that it produces a more

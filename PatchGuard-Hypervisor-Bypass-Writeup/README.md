@@ -369,7 +369,7 @@ No bypass at the VTL0 hypervisor level defeats VTL1-enforced KDP unless the atta
 
 ---
 
-## Portfolio Relationships
+## Related Writeups
 
 - **[VMExit API Unhooking](../VMExit-API-Unhook-Writeup/)** — uses the same VMExit/EPT infrastructure for a different application: restoring EDR inline hooks on syscall stubs rather than hiding them.
 - **[CLFS Zero-Day](../CLFS-ZeroDay-Writeup/)** — kernel exploitation in a different threat model (patch-constrained, user→kernel), without a hypervisor layer.

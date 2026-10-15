@@ -4,7 +4,7 @@
 
 All content is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Companion repository: my portfolio of working implementations (drivers, fuzzers, analyzers, pipelines) is indexed at <https://github.com/xgfhh0x11>.
+> Companion repository: my collection of working implementations (drivers, fuzzers, analyzers, pipelines) is indexed at <https://github.com/xgfhh0x11>.
 
 ---
 
@@ -75,7 +75,3 @@ All content is licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/
 | Writeup | Subject |
 |---|---|
 | [ACMM-Writeup](./ACMM-Writeup/) | LLM auxiliary memory as a virtual memory subsystem; memory-corruption primitives mapped to context layer |
-
----
-
-`_HBO-PITCHES.md` — one-paragraph elevator pitches for every item, structured for application essays and CV descriptions.

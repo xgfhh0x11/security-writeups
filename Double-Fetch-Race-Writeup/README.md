@@ -431,7 +431,7 @@ The correction is one discipline rule. The 50+ CVE batch proves that knowing the
 
 ---
 
-## §11 — Portfolio Relationships
+## §11 — Related Writeups
 
 **`DMA-IOMMU-Writeup`** — DMA/IOMMU examines a spatial isolation failure: the kernel's virtual address space protection does not extend to the hardware bus. Double-fetch examines a *temporal* isolation failure: the kernel's validation snapshot does not extend across time. Both are cases where a protection invariant is stated at one scope and relied upon at a larger scope.
 

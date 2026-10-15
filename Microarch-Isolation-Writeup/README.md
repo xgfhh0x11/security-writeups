@@ -1,7 +1,7 @@
 ---
 title: "No Boundary Below the Architecture"
 subtitle: "VMScape, GhostRace, and the TEE Assumption"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-16"
 keywords: [microarchitectural isolation, trust boundaries, VMScape, GhostRace, TEE, SGX, VBS, hypervisor isolation, branch predictor, speculative race conditions, defensive engineering]
 companion_writeups: "Silicon Is the Adversary (horizontal map of post-2018 microarch threats); Mathematical Collapse (theory); Speculation Barrier Illusion (focused reproducible instance)"
@@ -28,7 +28,7 @@ systematic enumeration of the gap between *the boundary the
 architecture promised* and *the boundary the silicon implemented*.
 
 This writeup is the trust-boundary side of that gap. Its sibling
-in this portfolio, *Silicon Is the Adversary*, is a horizontal
+in this collection, *Silicon Is the Adversary*, is a horizontal
 sweep of seven post-2018 attack families: Spectre, Meltdown,
 Foreshadow, dedup-Rowhammer, Hertzbleed, and friends. The
 present writeup is the orthogonal cut — a vertical drill through
@@ -1164,7 +1164,7 @@ difference between the two is the work of this writeup.
 
 ---
 
-## Appendix A — Relationship to the portfolio
+## Appendix A — Relationship to this collection
 
 This writeup is the *vertical* trust-boundary read in a
 cluster of three pieces that together map the post-2018

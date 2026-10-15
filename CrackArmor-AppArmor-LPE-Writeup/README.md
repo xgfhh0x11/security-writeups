@@ -403,7 +403,7 @@ This is structurally identical to the double-fetch race condition pattern (`Doub
 
 ---
 
-## §8 — Portfolio Relationships
+## §8 — Related Writeups
 
 **`Double-Fetch-Race-Writeup`** — Both writeups examine temporal mismatches in kernel authorization. Double-fetch: a value passes a bounds check, then changes before the bounds are enforced. Confused deputy: a fd is opened with authorized credentials, then used by an unauthorized entity. In both cases, the security invariant is stated as "a check at time T implies a property at time T+ε," and in both cases that implication is false under adversarial conditions.
 

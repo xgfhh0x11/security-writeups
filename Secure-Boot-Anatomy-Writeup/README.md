@@ -1,7 +1,7 @@
 ---
 title: "The Secure Boot Promise"
 subtitle: "Anatomy of a Signature Chain and Its Documented Bypasses"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-17"
 keywords: [UEFI Secure Boot, Platform Key, KEK, DB, DBX, BootHole, BlackLotus, BootStomp, authenticated variables, chain of trust, signature verification, bootkit, firmware security, anatomical security read]
 companion_writeup: "SPI-Firmware-Anatomy (the SPI flash and boot-ROM-chain piece; this writeup is its laser instance on the signature-chain side)"
@@ -36,7 +36,7 @@ literature on bootkit defense, on revocation hygiene, on
 authenticated-variable infrastructure — needs the anatomical read
 first.
 
-The piece sits in this portfolio as the *laser instance* of the
+The piece sits in this collection as the *laser instance* of the
 boot-ROM-chain section of SPI-Firmware-Anatomy. Where the parent
 writeup treated the SPI flash IC, the boot ROM, and the chain of
 signatures at the bus and IC level, the present writeup zooms into
@@ -1216,7 +1216,7 @@ the structural gap between the two halves.
 ## Appendix A — Pairing with SPI-Firmware-Anatomy
 
 This writeup is the *laser instance* of the boot-ROM-chain
-section of the SPI-Firmware-Anatomy portfolio piece. The two
+section of the SPI-Firmware-Anatomy collection piece. The two
 writeups read the same chain from two complementary directions
 and pair, structurally, as the same dissection seen from both
 ends.
@@ -1298,7 +1298,7 @@ reader's entry point:
    The reading is *anatomy → bypasses → questions* across both
    writeups.
 
-The third reading is the one this portfolio is engineered
+The third reading is the one this collection is engineered
 around. Both writeups are anatomical-register, both have
 six-section structures, both close with open questions, and
 both pair their open questions across the boundary so that a
@@ -1306,7 +1306,7 @@ single research program can pull from either's question list.
 
 ### A.4 The cluster context
 
-The cluster of portfolio pieces these two sit inside is
+The cluster of collection pieces these two sit inside is
 broader. The relationships:
 
 - *Mathematical Collapse* is the high-altitude theoretical
@@ -1337,7 +1337,7 @@ research literature on that surface and the close-reading
 practice to extract a specific contribution from one of its
 sub-problems.
 
-The intent of this portfolio is that any single piece is
+The intent of this collection is that any single piece is
 useful on its own and the pairs are *more* useful read
 together. The present writeup is the closing piece of the
 SPI-Firmware-Anatomy pair.
@@ -1345,8 +1345,8 @@ SPI-Firmware-Anatomy pair.
 ---
 
 *This writeup is the laser-instance companion to
-SPI-Firmware-Anatomy in the HBO NL low-level security
-application portfolio. Its intent is to read the UEFI Secure
+SPI-Firmware-Anatomy in this collection
+this collection. Its intent is to read the UEFI Secure
 Boot signature chain as a structural object — what each link
 asserts, where the chain has historically been bypassed, and
 what assumption each bypass invalidated. With acknowledgement

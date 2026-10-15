@@ -1,7 +1,7 @@
 ---
 title: "The Speculation Barrier Illusion: A Category Error at the ISA/Microarchitecture Boundary"
 subtitle: "What `lfence` actually proves, and why a correct proof can become a false security narrative"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [formal verification, speculative execution, CBMC, bounded model checking, lfence, Spectre, side channels, category error, abstraction boundaries]
 ---
@@ -470,7 +470,7 @@ VERIFICATION SUCCESSFUL
 
 A property violation (i.e., a counter-example) would have produced a `VERIFICATION FAILED` report with a concrete trace. The absence of such a trace under the ISA-level model is precisely the in-model proof discussed in §4.
 
-## Appendix B — Companion artefacts in this portfolio
+## Appendix B — Companion Writeups
 
 This writeup is the focused case-study counterpart to two broader pieces:
 

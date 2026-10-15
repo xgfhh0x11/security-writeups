@@ -350,7 +350,7 @@ Security claims made at one level hold only within that level's enforcement doma
 
 ---
 
-## §10 — Portfolio Relationships
+## §10 — Related Writeups
 
 **`DMA-IOMMU-Writeup`** — IOMMU is Level 2 of the three-tier control hierarchy described in §9. EPT is Level 3. Both demonstrate that the OS's memory isolation model is complete only within the CPU's execution domain, and both show attack surfaces that operate below that domain. The IOMMU writeup attacks from the hardware bus direction; this writeup attacks from the hypervisor layer.
 

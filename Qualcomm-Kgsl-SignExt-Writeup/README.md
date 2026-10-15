@@ -1,7 +1,7 @@
 ---
 title: "The Alignment Collapse"
 subtitle: "Sign Extension, Invariant Breakdown, and the Epistemology of Silent Overflow in the Qualcomm kgsl Graphics Driver (CVE-2026-21385)"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-17"
 keywords: [integer overflow, sign extension, CWE-190, kgsl, Qualcomm graphics, domain narrowing, precondition enforcement, invariant collapse, type confusion, kernel privilege escalation, CISA KEV, emergent inconsistency, cross-layer visibility, CWE-190]
 companion_writeup: "Mathematical-Collapse-Writeup — formal invariant collapse at the hardware-software interface; BFS2019-Master-Writeup — kernel exploitation chain anatomy"
@@ -11,7 +11,7 @@ companion_writeup: "Mathematical-Collapse-Writeup — formal invariant collapse 
 ## Sign Extension, Invariant Breakdown, and the Epistemology of Silent Overflow in the Qualcomm kgsl Graphics Driver (CVE-2026-21385)
 
 > **Cluster siblings:** *Mathematical Collapse*, *Silicon Is the Adversary*, *BFS2019 Master Writeup*, *Speculation Barrier Illusion*.
-> **Portfolio role:** low-level exploitation laser; primary focus on cross-layer invariant failure and the structural reason silent overflows survive tooling.
+> **Collection role:** low-level exploitation laser; primary focus on cross-layer invariant failure and the structural reason silent overflows survive tooling.
 
 ---
 
@@ -447,13 +447,13 @@ The patch history also shows that individual fixes do not propagate to sibling p
 
 ---
 
-## §8. Relationship to Portfolio
+## §8. Related Writeups
 
 This writeup is a *laser case study* in the cross-layer invariant failure pattern. Its structural claim is:
 
 > A signed/unsigned confusion at a driver trust boundary introduces a semantic-domain violation that propagates through two additional individually-correct layers before producing an observable symptom. Standard tooling cannot detect the violation because the violated invariant is semantic (alignment ∈ ℤ⁺), not syntactic. The fix is a domain restriction at the trust boundary, not a hardening of the function body.
 
-Within the portfolio, this writeup connects to:
+Within this collection, this writeup connects to:
 
 **Mathematical Collapse Writeup** — that writeup examines the gap between the mathematical objects a proof system reasons about and the physical objects a processor executes on. This writeup examines the same gap in a narrower setting: the mathematical domain (positive integers) versus the C type domain (signed integers). Both writeups trace failures to the mismatch between model and substrate.
 
@@ -463,7 +463,7 @@ Within the portfolio, this writeup connects to:
 
 **Speculation Barrier Illusion Writeup** — that writeup identifies a category error between ISA-level guarantees and microarchitectural behaviour. This writeup identifies a category error between the type-level contract (the compiler's domain) and the semantic contract (the driver's domain). Both writeups locate the error in the gap between two formally distinct but practically adjacent layers.
 
-The portfolio's unifying methodological posture — that low-level systems behaviour is best characterised by identifying the precise layer at which a guarantee breaks, rather than by treating the symptom where it surfaces — applies here directly. The OOB write at K4 is the symptom. The sign extension at K1 is the diagnosis. The four-layer causal chain between them is the lesson.
+The collection's unifying methodological posture — that low-level systems behaviour is best characterised by identifying the precise layer at which a guarantee breaks, rather than by treating the symptom where it surfaces — applies here directly. The OOB write at K4 is the symptom. The sign extension at K1 is the diagnosis. The four-layer causal chain between them is the lesson.
 
 ---
 

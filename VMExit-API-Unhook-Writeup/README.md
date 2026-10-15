@@ -415,7 +415,7 @@ VOID DriverUnload(PDRIVER_OBJECT DriverObject) {
 
 ---
 
-## Portfolio Relationships
+## Related Writeups
 
 - **[PatchGuard Hypervisor Bypass](../PatchGuard-Hypervisor-Bypass-Writeup/)** — same VMX/EPT infrastructure applied to a different target: hiding kernel hooks from Ring-0 integrity checking rather than from user-mode EDR.
 - **[CET-COOP Bypass](../CET-COOP-Bypass-Writeup/)** — user-mode control-flow subversion; no hypervisor layer. Shows the defense stack from the other direction.

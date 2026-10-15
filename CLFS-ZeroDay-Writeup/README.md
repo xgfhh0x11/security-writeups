@@ -262,7 +262,7 @@ One invariant check, inserted at two call sites. The entire 12-year-old logging 
 
 ---
 
-## §10 Portfolio Relationships
+## §10 Related Writeups
 
 - **Double-Fetch Race Condition** (`../Double-Fetch-Race-Writeup`): Both bugs exploit a temporal or structural gap between a validation step and the use of validated data. CLFS's gap is *spatial* (the array index aliases a control field) rather than temporal, but the formal structure — check happens in a context where its input is already wrong — is identical.
 

@@ -3,7 +3,6 @@ title: "The Confidential Computing Promise — Where SEV-SNP, TDX, and CCA Break
 author: Tyler
 date: 2026-05-17
 register: research / anatomical / structural
-portfolio: HBO NL low-level security
 cluster: Microarch-Isolation (sibling); extends TEE chapter into the CC era
 license: CC BY 4.0
 status: survey
@@ -1313,10 +1312,10 @@ venue assigns them.
 
 ---
 
-## Appendix A — Relationship to Portfolio
+## Appendix A — Related Writeups
 
 This writeup is the wide survey of Confidential Computing in the
-HBO NL low-level security portfolio. It is a sibling of the
+this collection. It is a sibling of the
 following pieces:
 
   - **Microarch-Isolation**: covered the TEE generation

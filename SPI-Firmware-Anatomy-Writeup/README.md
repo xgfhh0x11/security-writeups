@@ -1,7 +1,7 @@
 ---
 title: "An Anatomy of Firmware Fault Injection"
 subtitle: "From SPI Bus to Bootloader"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-16"
 keywords: [SPI flash, firmware fault injection, voltage glitch, clock glitch, electromagnetic fault injection, boot ROM, UEFI, Intel Boot Guard, BIOS Guard, ChipWhisperer, hardware root of trust, anatomical security read]
 companion_project: "SPIFault (Fault Campaign Description Format) — the schema side of the same research surface"
@@ -39,7 +39,7 @@ do *research* — to understand a phenomenon well enough to
 contribute to the published literature — needs the anatomical
 read first.
 
-The piece sits in this portfolio alongside SPIFault, which is
+The piece sits in this collection alongside SPIFault, which is
 the *schema-side* artifact for fault-injection research: a
 specification language for describing a campaign in a way other
 researchers can reproduce. The present writeup is the
@@ -1093,10 +1093,10 @@ close.
 
 ---
 
-## Appendix A — Relationship to the portfolio
+## Appendix A — Relationship to this collection
 
 This writeup is the *content-side* anatomical companion to
-**SPIFault**, an engineering project in this same portfolio
+**SPIFault**, an engineering project in this same collection
 that proposes a YAML schema for describing fault-injection
 campaigns (Fault Campaign Description Format) plus a Python
 validator and simulator backend. The two pieces address the
@@ -1116,10 +1116,10 @@ angles:
 
 A researcher who has read SPIFault knows *how* to describe a
 campaign. A researcher who has read this writeup knows *what
-to describe*. The pair is the portfolio's contribution to the
+to describe*. The pair is this collection's contribution to the
 research-communication problem in fault-injection security.
 
-The wider portfolio cluster the writeup also relates to —
+The wider collection cluster the writeup also relates to —
 without sitting inside — is the microarchitectural triple
 (*Mathematical Collapse*, *Silicon Is the Adversary*,
 *No Boundary Below the Architecture*, *Speculation Barrier
@@ -1131,7 +1131,7 @@ contract is correct; the implementation produces observables
 the contract did not enumerate), but they live at different
 physical layers and target different defensive infrastructure.
 
-A reader interested in the full portfolio's structural read of
+A reader interested in the full collection's structural read of
 hardware-level fault and side-channel surfaces can read this
 writeup alongside the microarchitectural triple; the two
 together cover the silicon-and-firmware substrate the OS sits

@@ -235,7 +235,7 @@ What changed in RS2 was not the delta's accessibility but the enforcement around
 
 ---
 
-## §9 — Portfolio Relationships
+## §9 — Related Writeups
 
 **`GDI-Bitmap-Abuse-Writeup`** — Direct predecessor technique. This writeup exists entirely because of the RS2 patch that closed the direct `pvScan0` overwrite path. Reading the two writeups together illustrates the mitigation/escalation cycle: each defense constrains the attack surface, but the constraint itself creates a new surface (here: the implication that anything within the desktop heap is a permitted `pvScan0` value). The RS2 fix was correct within its stated goal; the bypass exploits an assumption the fix made about the desktop heap's trustworthiness.
 

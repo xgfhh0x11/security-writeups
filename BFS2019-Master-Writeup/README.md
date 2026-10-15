@@ -1,7 +1,7 @@
 ---
 title: "BFS 2019 — Master Exploitation: A Full Chain on eko2019.exe"
 subtitle: "Integer overflow → 16-bit type confusion → gadget-dispatcher hijack → TEB leak → ROP → process continuation"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [CTF, BFS2019, eko2019, exploit development, Windows x64, ASLR bypass, TEB leak, stack cookie, ROP, COP, process continuation]
 ---
@@ -40,7 +40,7 @@ restoration layer) and letting them collide productively.
 
 The writeup that follows is the technical autopsy of that
 collision. The personal claim is at the front because the
-portfolio is not a list of equivalent items: this one taught me
+collection is not a list of equivalent items: this one taught me
 how to read the rest.
 
 ---
@@ -617,7 +617,7 @@ the right order.
 
 That is what I think the challenge actually teaches, and it is
 the lesson I have carried into every project in the rest of this
-portfolio. When a defender's mental model and the target's
+collection. When a defender's mental model and the target's
 implementation disagree, the implementation wins. When two
 parts of the same program use the same variable under
 incompatible interpretations, the exploit is the difference. When
@@ -724,9 +724,9 @@ the chain.
 
 ---
 
-## Appendix A — Where this writeup fits in the portfolio
+## Appendix A — Where this writeup fits in this collection
 
-This writeup occupies a unique slot in the portfolio. The other
+This writeup occupies a unique slot in this collection. The other
 writeups are conceptual (Mathematical Collapse, Speculation
 Barrier Illusion, ETW Mirage, ACMM) and the engineering
 projects (SILM, KRzr, KSIF, StealthL4Guard, …) are defensive
@@ -736,7 +736,7 @@ against a real target, not only theorize about why such chains
 exist.
 
 The chain itself uses three concepts that show up theoretically
-elsewhere in the portfolio:
+elsewhere in this collection:
 
 - the **trust-boundary collapse** — between the signed and the
   unsigned interpretation of `size_payload` — is the same
@@ -762,7 +762,7 @@ elsewhere in the portfolio:
 
 The biographical claim in the Author's Note is therefore not
 ornamental. This challenge is where the *reading discipline* that
-the rest of the portfolio applies first crystallized for me.
+the rest of this collection applies first crystallized for me.
 
 ---
 

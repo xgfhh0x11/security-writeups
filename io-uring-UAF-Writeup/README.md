@@ -349,7 +349,7 @@ The "unlink before drop before free" invariant is universal. Its violation is CV
 
 ---
 
-## Portfolio Relationships
+## Related Writeups
 
 - **[Vsock UAF](../Vsock-UAF-Writeup/)** — Linux kernel UAF from a different subsystem (AF_VSOCK) and a different lifecycle bug (refcount underflow on double connect failure vs. concurrent free). Direct comparison case for understanding lifecycle-based UAF primitives.
 - **[CLFS Zero-Day](../CLFS-ZeroDay-Writeup/)** — Windows kernel write primitive without UAF; shows the alternative attack surface (logical corruption vs. memory corruption).

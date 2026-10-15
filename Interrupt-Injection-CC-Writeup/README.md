@@ -1,7 +1,7 @@
 ---
 title: "Interrupt Injection Across Confidential VM Boundaries — Heckler and WeSee"
 subtitle: "A laser case study in the asymmetry between guest expectation and hypervisor control of interrupt delivery on AMD SEV-SNP and Intel TDX"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [confidential computing, AMD SEV-SNP, Intel TDX, interrupt injection, #VC, GHCB, VMCB, Heckler, WeSee, hypervisor threat model, trusted computing base]
 abstract: |
@@ -20,7 +20,7 @@ abstract: |
 # Interrupt Injection Across Confidential VM Boundaries — Heckler and WeSee
 
 > **Cluster siblings:** *Mathematical Collapse*, *Silicon Is the Adversary*, *Microarch-Isolation*, *SPI-Firmware-Anatomy*, *Speculation Barrier Illusion*.
-> **Portfolio role:** focused laser instance for the Microarch-Isolation TEE/CC chapter; sibling laser to *Speculation Barrier Illusion*.
+> **Collection role:** focused laser instance for the Microarch-Isolation TEE/CC chapter; sibling laser to *Speculation Barrier Illusion*.
 
 ---
 
@@ -40,17 +40,17 @@ That is the recurring shape of confidential-computing failures in 2024. The prot
 
 A second observation is worth making in the author's voice because it does not fit cleanly into the technical sections. The Heckler/WeSee result is *small* in the sense that the technical demonstration fits comfortably in a single conference talk and the exploit chains are not, in themselves, more elaborate than typical kernel exploits. The result is *large* in the sense that it relocates a class of attack from "side channels and microarchitectural tricks" to "architecturally specified interfaces working as designed". The relocation is the contribution. A defender who is reading the disclosure record only for novel mechanisms can miss this: the mechanism (event injection) is decades old. What is new is the *context* (the hypervisor is now declared untrusted) and the *consequence* (the decades-old mechanism is now an attack primitive).
 
-This is why the laser case-study format suits the result. A broader survey of CC attacks would describe Heckler/WeSee in a paragraph and move on. A laser instance reads the single anatomy in enough detail that the reader internalises *why* the threat-model relocation matters, and can apply the pattern to the next interface where it recurs. The portfolio's *Speculation Barrier Illusion* laser does the same work for a different category error (ISA-vs-microarchitecture); both lasers pay the cost of detail in exchange for the structural clarity that detail buys.
+This is why the laser case-study format suits the result. A broader survey of CC attacks would describe Heckler/WeSee in a paragraph and move on. A laser instance reads the single anatomy in enough detail that the reader internalises *why* the threat-model relocation matters, and can apply the pattern to the next interface where it recurs. The collection's *Speculation Barrier Illusion* laser does the same work for a different category error (ISA-vs-microarchitecture); both lasers pay the cost of detail in exchange for the structural clarity that detail buys.
 
-The remainder of this writeup is anatomical. §1 lays out what the SEV-SNP and TDX architectures say about who delivers interrupts. §§2–3 dissect Heckler and WeSee respectively at the level of registers and fields. §4 names the common anatomy — the one structural fact both attacks read. §5 describes the mitigation posture. §6 places the work in the literature it speaks to. §7 catalogues the questions that remain open. The piece ends with a relationship statement that locates it within the portfolio.
+The remainder of this writeup is anatomical. §1 lays out what the SEV-SNP and TDX architectures say about who delivers interrupts. §§2–3 dissect Heckler and WeSee respectively at the level of registers and fields. §4 names the common anatomy — the one structural fact both attacks read. §5 describes the mitigation posture. §6 places the work in the literature it speaks to. §7 catalogues the questions that remain open. The piece ends with a relationship statement that locates it within this collection.
 
 ---
 
 ## Abstract
 
-The AMD SEV-SNP and Intel TDX architectures protect a confidential guest's memory and register state against a hostile hypervisor through cryptographic confidentiality and integrity. They do not, however, protect the guest against the *interrupt delivery channel*. Heckler [Schlüter et al., USENIX Security 2024] and WeSee [Schlüter et al., S&P 2024] demonstrate that this omission is not a refinement detail but a primitive sufficient to corrupt or extract guest secrets. WeSee uses hypervisor-injected `#VC` exceptions on AMD SEV-SNP, with an attacker-crafted `exit_reason`, to coerce the guest's own `#VC` handler into copying attacker-selected registers into the GHCB shared buffer and writing attacker-chosen values back into the guest's register file. Heckler injects ordinary interrupt vectors — paradigmatically `int 0x80` — to drive guest interrupt handlers whose global effect (modifying registers or signal state) can be steered into an exploitable outcome such as authentication bypass or privilege escalation. The attacks have CVE assignments CVE-2024-25742 (WeSee), CVE-2024-25743 (Heckler signal), and CVE-2024-25744 (Heckler `int 0x80`); AMD and the Linux kernel have shipped partial mitigations. This writeup describes both attacks anatomically, names the structural assumption each invalidates, and positions the result alongside its sibling laser case studies in the portfolio.
+The AMD SEV-SNP and Intel TDX architectures protect a confidential guest's memory and register state against a hostile hypervisor through cryptographic confidentiality and integrity. They do not, however, protect the guest against the *interrupt delivery channel*. Heckler [Schlüter et al., USENIX Security 2024] and WeSee [Schlüter et al., S&P 2024] demonstrate that this omission is not a refinement detail but a primitive sufficient to corrupt or extract guest secrets. WeSee uses hypervisor-injected `#VC` exceptions on AMD SEV-SNP, with an attacker-crafted `exit_reason`, to coerce the guest's own `#VC` handler into copying attacker-selected registers into the GHCB shared buffer and writing attacker-chosen values back into the guest's register file. Heckler injects ordinary interrupt vectors — paradigmatically `int 0x80` — to drive guest interrupt handlers whose global effect (modifying registers or signal state) can be steered into an exploitable outcome such as authentication bypass or privilege escalation. The attacks have CVE assignments CVE-2024-25742 (WeSee), CVE-2024-25743 (Heckler signal), and CVE-2024-25744 (Heckler `int 0x80`); AMD and the Linux kernel have shipped partial mitigations. This writeup describes both attacks anatomically, names the structural assumption each invalidates, and positions the result alongside its sibling laser case studies in this collection.
 
-The contribution this writeup makes is neither a new attack nor a new defence. It is a *naming*: the structural fact that both attacks read — *the architecture asks the confidential guest to trust the hypervisor with interrupt delivery, and provides the guest no primitive with which to verify what was delivered* — is stated explicitly, dissected at the level of fields and handlers, and positioned within the broader portfolio's reading of trust-boundary failures in microarchitectural isolation. The naming matters because it identifies a class of attack (interrupt-injection across CC boundaries) that future disclosures will instantiate from new angles, and because it identifies the corresponding class of fix (an architectural integrity-of-control primitive) that the deployed mitigations are not.
+The contribution this writeup makes is neither a new attack nor a new defence. It is a *naming*: the structural fact that both attacks read — *the architecture asks the confidential guest to trust the hypervisor with interrupt delivery, and provides the guest no primitive with which to verify what was delivered* — is stated explicitly, dissected at the level of fields and handlers, and positioned within the broader collection's reading of trust-boundary failures in microarchitectural isolation. The naming matters because it identifies a class of attack (interrupt-injection across CC boundaries) that future disclosures will instantiate from new angles, and because it identifies the corresponding class of fix (an architectural integrity-of-control primitive) that the deployed mitigations are not.
 
 **Keywords:** confidential computing, AMD SEV-SNP, Intel TDX, interrupt injection, `#VC`, GHCB, Heckler, WeSee, trusted computing base, threat model.
 
@@ -324,7 +324,7 @@ This is the structural point the laser register is intended to make visible. Eig
 
 ### 4.0 What "common anatomy" means in this writeup
 
-The previous two sections described the two attacks separately because they target different vectors and reach different consequences. This section reads them together. The reading is not a synthesis (no new attack is constructed); it is a diagnosis (the structural fact common to both is named explicitly). The diagnostic register is appropriate because, in the portfolio's framing, the *naming* is the contribution: an attack class that has been named structurally is one that defenders can recognise in new instances; one that has only been described phenomenologically is one that recurs without recognition.
+The previous two sections described the two attacks separately because they target different vectors and reach different consequences. This section reads them together. The reading is not a synthesis (no new attack is constructed); it is a diagnosis (the structural fact common to both is named explicitly). The diagnostic register is appropriate because, in this collection's framing, the *naming* is the contribution: an attack class that has been named structurally is one that defenders can recognise in new instances; one that has only been described phenomenologically is one that recurs without recognition.
 
 Heckler and WeSee read the same structural fact through two different vectors. The fact is:
 
@@ -348,9 +348,9 @@ It is worth naming what the attacks are *not*, because each "not" rules out a cl
 - **Not a speculative side channel.** Both attacks are entirely architectural. There is no timing measurement of cache state, no transient-execution gadget, no branch-predictor poisoning. The exploit completes through ordinary, committed instruction execution.
 - **Not a software bug in any specific handler.** The Linux `#VC` handler and the `int 0x80` dispatcher are both functioning as their authors intended. The bug is at the architectural specification's silence about authenticity of the calling source.
 
-### 4.3 The structural fact, restated for the portfolio
+### 4.3 The structural fact, restated for this collection
 
-The portfolio's *Speculation Barrier Illusion* writeup names a category error at the ISA/microarchitecture boundary: a property proved about the abstract execution model says nothing about the physical execution mechanism. The Heckler/WeSee writeup names a different category error, at the threat-model boundary: a property assumed about the hypervisor in one threat model continues to be assumed in a later, incompatible threat model. Both errors share a shape — *the assumption that was load-bearing was never stated*, so when the assumption is invalidated the verifier or the architect cannot point at the line that broke.
+The collection's *Speculation Barrier Illusion* writeup names a category error at the ISA/microarchitecture boundary: a property proved about the abstract execution model says nothing about the physical execution mechanism. The Heckler/WeSee writeup names a different category error, at the threat-model boundary: a property assumed about the hypervisor in one threat model continues to be assumed in a later, incompatible threat model. Both errors share a shape — *the assumption that was load-bearing was never stated*, so when the assumption is invalidated the verifier or the architect cannot point at the line that broke.
 
 ### 4.4 The dual reading of "trust"
 
@@ -364,7 +364,7 @@ The Heckler/WeSee result is that *confidentiality trust without integrity-of-con
 
 ### 4.5 The structural fact and the cluster reading
 
-For the portfolio's cluster reading, the structural fact restates as a pattern: *a security property that is real in one domain (confidentiality of memory) does not transfer to an adjacent domain (integrity of control), and the threat model implicitly conflates them.* This is the same pattern that *Microarch-Isolation* documents at the broader cluster scale — boundaries that the threat model assumes are honoured by the substrate, where the substrate's actual honouring is partial. Heckler/WeSee is the cleanest small example of the pattern because the partial honouring is locatable to a single field (`EVENTINJ`) and a single assumption (its value is benign).
+For this collection's cluster reading, the structural fact restates as a pattern: *a security property that is real in one domain (confidentiality of memory) does not transfer to an adjacent domain (integrity of control), and the threat model implicitly conflates them.* This is the same pattern that *Microarch-Isolation* documents at the broader cluster scale — boundaries that the threat model assumes are honoured by the substrate, where the substrate's actual honouring is partial. Heckler/WeSee is the cleanest small example of the pattern because the partial honouring is locatable to a single field (`EVENTINJ`) and a single assumption (its value is benign).
 
 ### 4.6 The compositionality observation
 
@@ -558,7 +558,7 @@ Candidate interfaces worth that systematic pass include: (a) **MSR virtualisatio
 
 ### 7.6 What is the right framing for the "not a bug" statement?
 
-AMD and Intel have, in their advisories, accepted the Heckler and WeSee CVEs and shipped mitigations. The mitigations sit *above* the architectural layer where the property in question would belong. Neither vendor has, in formal architectural specifications, restated the security model to include interrupt authenticity. This leaves the disclosure record in an ambiguous state: the attacks are accepted as bugs at the patch level and as design intent at the architectural level. The portfolio's *Speculation Barrier Illusion* writeup makes the case that "not a bug" should be a *structural communication* about the model, not a customer-service phrase. The Heckler/WeSee case is the same shape and deserves the same framing.
+AMD and Intel have, in their advisories, accepted the Heckler and WeSee CVEs and shipped mitigations. The mitigations sit *above* the architectural layer where the property in question would belong. Neither vendor has, in formal architectural specifications, restated the security model to include interrupt authenticity. This leaves the disclosure record in an ambiguous state: the attacks are accepted as bugs at the patch level and as design intent at the architectural level. The collection's *Speculation Barrier Illusion* writeup makes the case that "not a bug" should be a *structural communication* about the model, not a customer-service phrase. The Heckler/WeSee case is the same shape and deserves the same framing.
 
 The asymmetry between *patch-level acceptance* and *architectural-level silence* is the disclosure pattern that the CC literature is, slowly, learning to recognise. A vendor accepts a CVE because the bug is concretely reproducible in shipped software; the vendor does not restate the architecture because doing so would commit to a specific authoritative threat model, and the threat model is still being negotiated between hardware designers, hypervisor authors, and CC consumers. The negotiation is healthy in principle; in practice it produces a disclosure record that lists symptoms (CVEs) without committing to a diagnosis (an architectural property that should hold). The Heckler/WeSee CVEs will read, in five years, as either (a) the early-warning signs of a threat-model rewrite that incorporated interrupt authenticity, or (b) the early-warning signs of a class of follow-on attacks that exploited the same gap from new directions. Which of the two it turns out to be depends on what the next architectural specification revision says.
 
@@ -638,21 +638,21 @@ Project resources:
 
 ---
 
-## Appendix A — Relationship to the Portfolio
+## Appendix A — Related Writeups
 
-### A.1 The portfolio's laser/cluster taxonomy
+### A.1 The collection's laser/cluster taxonomy
 
-The HBO NL low-level security portfolio is organised into two formats: **cluster reads** that survey a structural pattern across many instances, and **laser case studies** that anatomise a single instance in enough detail that the structural pattern becomes locally visible. The two formats complement each other. The cluster reads provide the conceptual frame; the laser case studies provide the empirical anchor.
+This collection is organised into two formats: **cluster reads** that survey a structural pattern across many instances, and **laser case studies** that anatomise a single instance in enough detail that the structural pattern becomes locally visible. The two formats complement each other. The cluster reads provide the conceptual frame; the laser case studies provide the empirical anchor.
 
-This writeup is one of two **laser case studies** in the HBO NL low-level security portfolio. It pairs with *Speculation Barrier Illusion* (the speculative-execution laser) as a focused-instance counterpart to the broader cluster reads.
+This writeup is one of two **laser case studies** in this collection. It pairs with *Speculation Barrier Illusion* (the speculative-execution laser) as a focused-instance counterpart to the broader cluster reads.
 
-The cluster the laser is embedded in is *Microarch-Isolation*, the portfolio's broader treatment of trust-boundary failures in microarchitectural isolation. *Microarch-Isolation* makes the general argument that *trust boundaries assumed in the threat model are not always boundaries the substrate honours*. The Heckler/WeSee writeup is one concrete instance of that argument: the trust boundary between a CC guest and the hypervisor was assumed to be honoured by the architecture for all guest-facing resources, but the architecture honours it only for memory and register state, not for interrupt delivery.
+The cluster the laser is embedded in is *Microarch-Isolation*, this collection's broader treatment of trust-boundary failures in microarchitectural isolation. *Microarch-Isolation* makes the general argument that *trust boundaries assumed in the threat model are not always boundaries the substrate honours*. The Heckler/WeSee writeup is one concrete instance of that argument: the trust boundary between a CC guest and the hypervisor was assumed to be honoured by the architecture for all guest-facing resources, but the architecture honours it only for memory and register state, not for interrupt delivery.
 
 The laser also sits in dialogue with three other cluster siblings:
 
-- *Mathematical Collapse* — the portfolio's read of pre-quantum cryptography's structural exposure to algorithmic advance — establishes the pattern of *a guarantee whose validity was always conditional on an unstated assumption*. The Heckler/WeSee laser instantiates the same pattern at a different scale (architectural, not cryptographic).
-- *Silicon Is the Adversary* — the portfolio's treatment of hardware-level adversarial models — provides the framing within which "the hypervisor is untrusted" becomes a meaningful claim. The laser shows what happens when that claim is half-implemented.
-- *SPI-Firmware-Anatomy* — the portfolio's anatomy of a different unauthenticated interface — establishes the format. SPI flash is to firmware integrity what `EVENTINJ` is to interrupt integrity: an interface that the threat model treats as authenticated and that the architecture leaves unauthenticated.
+- *Mathematical Collapse* — this collection's read of pre-quantum cryptography's structural exposure to algorithmic advance — establishes the pattern of *a guarantee whose validity was always conditional on an unstated assumption*. The Heckler/WeSee laser instantiates the same pattern at a different scale (architectural, not cryptographic).
+- *Silicon Is the Adversary* — this collection's treatment of hardware-level adversarial models — provides the framing within which "the hypervisor is untrusted" becomes a meaningful claim. The laser shows what happens when that claim is half-implemented.
+- *SPI-Firmware-Anatomy* — this collection's anatomy of a different unauthenticated interface — establishes the format. SPI flash is to firmware integrity what `EVENTINJ` is to interrupt integrity: an interface that the threat model treats as authenticated and that the architecture leaves unauthenticated.
 
 The pairing with *Speculation Barrier Illusion* is the most direct. Both are laser-scale case studies. Both make a single structural fact visible. Both end with the same statement: the bug is the threat model, not the silicon. Heckler/WeSee is the one of the pair where the threat-model gap is *most cleanly visible*, because the affected resource (interrupt delivery) is named in the architectural spec but its security property is not stated. *Speculation Barrier Illusion* is the one where the affected resource (microarchitectural state) is *not even named* in the relevant spec.
 
@@ -662,28 +662,6 @@ Together, the two lasers cover the two failure modes of an unstated assumption:
 - (b) the assumption is stated about an object that does not exist in the spec at all (microarchitectural side effects), so no security property can be stated.
 
 Both failures present in the field as "not a bug" disclosures from the vendor. Both are, structurally, the same statement: the threat model has moved, the architectural spec has not, and the gap is exactly where the next attack lives.
-
-### A.2 What this writeup contributes that the cluster reads cannot
-
-A cluster read of *Microarch-Isolation* would mention Heckler and WeSee in a paragraph alongside SGX-Step, ciphertext side channels, and undeSErVed-trust attestation issues. The paragraph would name the structural fact (the hypervisor remains in the control-flow trust boundary) but would not have the room to make that fact *visible at the field level*. The laser writeup pays the cost of going to the field level — `EVENTINJ.Valid`, the `#VC` error code, the GHCB `SwExitCode`, the PIR bitmap — and in exchange the reader can locate the bug in a specific value in a specific structure. That specific location is what makes the structural fact survive translation to other interfaces. A reader who has internalised that the interrupt channel's gap lives in `EVENTINJ` knows what to look for when the same shape appears in an MSR-virtualisation channel or a CPUID-intercept channel.
-
-### A.3 What the laser leaves unanswered for the cluster
-
-The laser is not self-sufficient. It demonstrates one instance of the pattern but cannot, by itself, establish the *generality* of the pattern. The generality is the cluster's job. *Microarch-Isolation* is where the question "is this an instance of a general phenomenon, or a one-off?" is answered, by reading multiple instances together and looking for the recurrent shape. The laser provides the empirical material; the cluster provides the inference.
-
-Practically, this means the laser is most useful when read *adjacent to* the cluster, not in isolation. A reader who comes to this writeup without the *Microarch-Isolation* frame will see a well-documented pair of attacks; a reader who comes with the frame will see one instance of a recurring structural failure, which is what the portfolio is trying to communicate.
-
-### A.4 Where the next laser would go
-
-If the portfolio were to add a third laser to the existing pair, the natural choice — given the open questions in §7 — would be an anatomical study of one of the *other* architecturally-unauthenticated interfaces named in §7.5. A laser on MSR virtualisation pass-through, or on CPUID intercept handling, would extend the Heckler/WeSee pattern to a new interface and would let the cluster's general inference be checked against a third independent instance. The portfolio author notes this as future work; the present writeup completes the second laser in the existing pair.
-
-### A.5 The writeup's register, made explicit
-
-The portfolio's stylistic posture is *anatomical research register*: a writing voice that treats the artefact under study (here, two CVEs and the architectural specifications they live against) the way a pathologist's report treats a tissue sample. The voice is dispassionate; it cites; it does not editorialise; it pauses to name structural facts when those facts are not visible at the level of the technical detail.
-
-The reason for this register is operational. The portfolio is addressed to an HBO NL audience that includes both technically deep readers (who can verify the field-level claims against the cited specifications) and broader policy/strategy readers (who need the structural patterns named explicitly because they cannot recover those patterns from the technical detail alone). The anatomical register suits both audiences: the technical reader gets the field-level precision they need; the strategic reader gets the structural statement they need; neither has to wade through prose tuned for the other.
-
-A note on what this register *is not*. It is not a textbook tone, because textbooks aim to teach a settled body of material and this writeup is reporting on an active and contested area. It is not a journalism tone, because journalism privileges narrative and immediacy and this writeup privileges precision. It is not a vendor advisory tone, because advisories privilege containment and customer guidance and this writeup privileges structural reading. The closest analogue in the existing literature is the careful documentation register of `seL4` or the Sail x86 specification — material that documents a complex object faithfully and trusts the reader to read carefully.
 
 ---
 
@@ -755,7 +733,7 @@ The glossary is non-exhaustive; readers wanting the full canonical names should 
 
 ---
 
-*Document version: 1.0. Last updated 2026-05-14. Compiled for the HBO NL low-level security application portfolio.*
+*Document version: 1.0. Last updated 2026-05-14. Compiled for this collection.*
 
 ---
 

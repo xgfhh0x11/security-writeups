@@ -1,7 +1,7 @@
 ---
 title: "The Decoy Surface"
 subtitle: "Anatomy of Hypervisor-Mediated Kernel Deception"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-17"
 keywords: [hypervisor-mediated deception, SSDT, APC injection, decoy device object, kernel rootkit anatomy, kernel honeypot, IRP dispatcher, handle table, manual export resolver, PatchGuard, HVCI, VBS, vulnerable driver blocklist, kernel deception]
 companion_writeup: "KDF (Kernel-Mode Deception Framework) — the engineering counterpart"
@@ -1337,11 +1337,11 @@ devices are in use.
 
 ---
 
-## Appendix A — Relationship to the Portfolio
+## Appendix A — Related Writeups
 
 This writeup is the anatomical-research counterpart to the
 **KDF (Kernel-Mode Deception Framework)** engineering project
-already in the portfolio. KDF is the engineering side: it
+already in this collection. KDF is the engineering side: it
 implements a subset of the primitives anatomised here as a
 defensive deception fabric, with the surrounding infrastructure
 oriented toward telemetry capture and probe classification. This
@@ -1397,7 +1397,7 @@ The relationship to the other cluster siblings:
 - **Rowhammer-Decade** and **GPU-Side-Channel-AI**. Name
   primitive sets at different substrates (DRAM, GPU memory);
   the decoy surface anatomised here is a CPU/hypervisor-substrate
-  parallel. The portfolio's structural argument is that decoy
+  parallel. The collection's structural argument is that decoy
   surfaces, side channels, and integrity-substrate analyses are
   three facets of the same low-level-security object.
 
@@ -1407,7 +1407,7 @@ The relationship to the other cluster siblings:
   flavored writeup in the cluster; it sits at the top of the
   ladder the other writeups descend.
 
-The portfolio's coherence is that each writeup names one
+The collection's coherence is that each writeup names one
 substrate, anatomises one decoy or attack surface on that
 substrate, and points at the substrates above and below it. This
 writeup is the kernel-and-hypervisor rung.

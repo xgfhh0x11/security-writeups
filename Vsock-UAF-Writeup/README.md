@@ -352,7 +352,7 @@ Both fixes together: the refcount invariant is restored. A socket can only have 
 
 ---
 
-## §11 Portfolio Relationships
+## §11 Related Writeups
 
 - **Double-Fetch Race Condition** (`../Double-Fetch-Race-Writeup`): Both bugs exploit a gap between when a state flag should have been set and when it actually gets set. In Double-Fetch, the temporal gap is between kernel validation and use. Here, the ordering gap is between `SOCK_DEAD` setting and `vsock_remove_bound()` execution. Different layer, same structural class: a guard that arrives too late.
 

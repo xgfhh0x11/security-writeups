@@ -1,6 +1,6 @@
 ---
 title: "AI Contextual Memory Manipulation: Architecture, Exploitation, and Defense"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [LLM security, contextual memory, prompt injection, TOCTOU, SIMD, AVX2, vector database]
 ---

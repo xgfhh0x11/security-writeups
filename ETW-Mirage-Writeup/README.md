@@ -1,7 +1,7 @@
 ---
 title: "The ETW Mirage: When .NET Telemetry Is Repurposed as a Security Boundary"
 subtitle: "A trust-boundary audit of CLR ETW, the two structural bypasses, and the defensive program that has to follow"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [ETW, .NET, CLR, EtwEventWrite, COMPlus_ETWEnabled, trust boundary, telemetry, user-mode reporting, AMSI, defensive detection]
 ---
@@ -832,10 +832,10 @@ get more or less true by being numbered.
 
 ---
 
-## Appendix A — Where this writeup fits in the portfolio
+## Appendix A — Where this writeup fits in this collection
 
 This writeup is one of three "trust-boundary autopsies" in the
-portfolio. The three argue, at three different layers, that
+collection. The three argue, at three different layers, that
 defenders routinely treat as security controls things that were
 never designed to be security controls — and that the bypasses
 follow structurally rather than incidentally.
@@ -856,7 +856,7 @@ response (multi-source, kernel-side validation, layered
 observation) is the same in all three.
 
 The writeup is also the theoretical companion to two engineering
-artefacts in the portfolio:
+artefacts in this collection:
 
 - [[KSIF]] — *defensive*, kernel-state semantic-integrity
   framework. The kernel-side primitive §7 calls for, in code.

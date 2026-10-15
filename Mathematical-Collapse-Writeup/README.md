@@ -1,7 +1,7 @@
 ---
 title: "Where Classical Mathematics Collapses: The Silicon Substrate and the Hardware-Software Boundary"
 subtitle: "An epistemological autopsy of mathematical abstraction in microarchitectural systems"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-14"
 keywords: [microarchitecture, formal verification, side channels, Spectre, Meltdown, speculative execution, BTI, hardware-software boundary, epistemology, domain-specific languages]
 ---
@@ -1084,9 +1084,9 @@ The cost is uncomputability and epistemic humility. The benefit is honesty.
 
 ---
 
-## Appendix A — Companion artefacts in this portfolio
+## Appendix A — Companion Writeups
 
-This writeup is the theoretical companion to several measurement-oriented projects in the same portfolio:
+This writeup is the theoretical companion to several measurement-oriented projects in the same collection:
 
 - [[SILM]] — Per-CPU interrupt-latency monitor with online CUSUM change-point detection and a TSC/QPC ratio detector. Concrete realization of the "environment-conditioned distribution" thesis of §4.4.
 - [[KRzr]] — Windows kernel-mode race-condition fuzzer. Concrete realization of the "constraint-based probabilistic replay" thesis of §5.5.

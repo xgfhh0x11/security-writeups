@@ -295,9 +295,9 @@ The residual gap: `MmMapIoSpace` is a documented API with legitimate use cases (
 
 ---
 
-## §10 — Portfolio Relationships
+## §10 — Related Writeups
 
-This writeup occupies the hardware-software boundary layer of the portfolio's kernel memory model cluster:
+This writeup occupies the hardware-software boundary layer of this collection's kernel memory model cluster:
 
 **`MDL-Abuse-Writeup`** — MDL abuse (`IoAllocateMdl` + `MmBuildMdlForNonPagedPool` + `MmMapLockedPagesSpecifyCache`) is the software-internal version of this attack: the MDL API converts a virtual address to a physical page list and re-maps it, achieving read/write to arbitrary kernel memory without leaving the CPU execution model. DMA/IOMMU abuse is the hardware-external version: `MmMapIoSpace` accepts a raw physical address directly, bypassing even the virtual→physical translation step.
 

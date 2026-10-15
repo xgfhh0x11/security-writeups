@@ -284,7 +284,7 @@ All addresses are system-specific and session-specific. A production exploit wou
 
 ---
 
-## §9 — Portfolio Relationships
+## §9 — Related Writeups
 
 **`RS2-Bitmap-Necromancy-Writeup`** — Direct successor technique. RS2 Necromancy uses a UAF on a freed desktop heap object to achieve the same `pvScan0` overwrite that this writeup achieves via direct pool write. The final arbitrary R/W primitive and token steal chain are identical; only the path to `pvScan0` corruption differs.
 

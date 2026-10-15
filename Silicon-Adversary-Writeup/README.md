@@ -1,7 +1,7 @@
 ---
 title: "Silicon Is the Adversary"
 subtitle: "Microarchitectural Threats from Spectre to Hertzbleed"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-16"
 keywords: [microarchitectural security, Spectre, Meltdown, Foreshadow, Hertzbleed, speculative constant-time, memory deduplication, Rowhammer, side-channel, defensive engineering]
 companion_writeup: "Speculation Barrier Illusion (focused single-instance case study of the same boundary)"
@@ -165,7 +165,7 @@ Each of these works on *one* gap. None of them closes the category.
 ### 1.4 The ontological lift
 
 The right reading of Spectre and Meltdown — together, not
-separately — is the one a sibling writeup in this portfolio,
+separately — is the one a sibling writeup in this collection,
 *Speculation Barrier Illusion*, names directly: there are two
 distinct objects in the picture, and the threat model conflates
 them. **ISA-level speculation** is the abstract-machine notion —
@@ -953,10 +953,10 @@ That is the work.
 
 ---
 
-## Appendix A — Relationship to the portfolio
+## Appendix A — Relationship to this collection
 
 This writeup sits at the wide-survey end of a cluster of
-portfolio pieces that all read microarchitectural security as
+collection pieces that all read microarchitectural security as
 *a structural problem*, not as a list of CVEs.
 
 - *Mathematical Collapse* gives the general theory across six

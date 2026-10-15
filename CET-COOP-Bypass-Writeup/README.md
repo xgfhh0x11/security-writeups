@@ -279,7 +279,7 @@ CET plus CFG together close most of the COOP surface. CET alone does not.
 
 ---
 
-## §12 Portfolio Relationships
+## §12 Related Writeups
 
 - **GDI Bitmap Abuse / RS2 Bitmap Necromancy** (`../GDI-Bitmap-Abuse-Writeup`, `../RS2-Bitmap-Necromancy-Writeup`): COOP needs a write primitive and a controlled heap address. The Manager/Worker bitmap technique provides arbitrary kernel R/W — the exact primitive COOP would need in a kernel COOP scenario. RS2 Necromancy shows UAF → controlled heap slot, which is the setup step for any vtable corruption.
 

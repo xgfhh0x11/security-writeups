@@ -1,7 +1,7 @@
 ---
 title: "Amplified Leakage"
 subtitle: "How GPU Overclocking Widens the Side-Channel Surface for AI Workloads"
-author: "Tyler (HBO NL Application Portfolio)"
+author: Tyler
 date: "2026-05-17"
 keywords: [GPU security, side-channel, Hertzbleed, DVFS, AI workloads, model extraction, BarraCUDA, Naghibijouybari, overclocking, multi-tenant GPU, prompt extraction, LLM serving]
 cross_cluster_pair: "Silicon-Adversary (CPU equivalent), ACMM-Writeup (AI-systems equivalent)"
@@ -26,7 +26,7 @@ substrate a side-channel emitter, and the AI workload is shaped
 exactly right to ride that emitter.
 
 The CPU-side companion to this writeup — *Silicon Is the Adversary*,
-which sits earlier in the portfolio — closes with the sentence that
+which sits earlier in this collection — closes with the sentence that
 "the silicon will keep optimizing; the optimizations will keep
 producing observable state; the threat model will keep expanding
 downward." This writeup is what happens when you take that sentence
@@ -75,14 +75,14 @@ and switching power, and nobody has yet measured whether INT4
 inference is more or less leaky than FP16. The writeup names that
 fourth point as the most urgent open question for the field.
 
-The bridge function this writeup performs in the portfolio is named
+The bridge function this writeup performs in this collection is named
 explicitly in Appendix A. *Silicon-Adversary* is the CPU side of
 the same structural fact. *ACMM-Writeup* (the AI Computational Mass
 Model writeup that lives in the AI-systems cluster) reads the same
 substrate from the workload side. This writeup is the join: it
 takes the CPU-side reading of DVFS-as-side-channel and applies it
 to the GPU substrate where the AI workload lives, and it does so
-in the same register the CPU-side reading used. The portfolio is
+in the same register the CPU-side reading used. The collection is
 designed so that the defender who reads the three together arrives
 at the same conclusion from three different angles — the
 silicon's optimizations expose state, the AI workload rides those
@@ -108,7 +108,7 @@ matrix multiplies, regular data movement, predictable batch sizes —
 is shaped exactly right to ride the DVFS oracle. Each section ends
 with a paragraph naming the assumption invalidated by the
 corresponding attack family. The writeup is positioned in the
-portfolio as the cross-cluster bridge between microarchitectural
+collection as the cross-cluster bridge between microarchitectural
 security (where *Silicon-Adversary* lives) and AI-systems security
 (where *ACMM-Writeup* lives).
 
@@ -1120,7 +1120,7 @@ is the threat-model-derived analysis on top.
 [Kocher et al. 2018] Kocher, P., Horn, J., Fogh, A., et al.
   *Spectre Attacks: Exploiting Speculative Execution.*
   IEEE S&P 2019. *(Background; the CPU-side categorical
-  shift that *Silicon-Adversary* in this portfolio
+  shift that *Silicon-Adversary* in this collection
   reads in depth.)*
 
 [Lipp et al. 2018] Lipp, M., Schwarz, M., Gruss, D., et al.
@@ -1164,10 +1164,10 @@ is the threat-model-derived analysis on top.
 
 ---
 
-## Appendix A — Cross-cluster positioning
+## Appendix A — Related Writeups
 
 This writeup is the explicit **cross-cluster bridge** in the
-HBO NL low-level security application portfolio. The portfolio
+this collection. The collection
 is organized into clusters:
 
 - **Cluster 1: Mathematical Collapse / Silicon-Adversary /
@@ -1207,7 +1207,7 @@ has changed, but the analytic frame is the same. To a Cluster
 GPU is the silicon underneath your workload, and the silicon
 has the same threat model the CPU community spent eight years
 characterizing — you are inheriting it without having paid the
-intellectual cost of generating it." The portfolio is designed
+intellectual cost of generating it." The collection is designed
 so that a defender who reads across the two clusters arrives
 at both views.
 
@@ -1254,7 +1254,7 @@ production.
 ### A.3 The bridge claim
 
 The bridge claim this writeup makes explicit, in the register
-the portfolio uses throughout: **microarchitectural security
+this collection uses throughout: **microarchitectural security
 and AI-systems security are the same field with two registers.**
 The microarchitectural register names the substrate-level
 threats and the substrate-level mitigations. The AI-systems
@@ -1264,7 +1264,7 @@ needs both, and the field that has historically split between
 "hardware security" conferences (USENIX Security, IEEE S&P, CCS
 for the substrate work) and "AI/ML security" venues (DEF CON AI
 Village, AISec, individual workshops at NeurIPS) is structurally
-the same field. The portfolio's argument, made explicit here, is
+the same field. The collection's argument, made explicit here, is
 that the next generation of defender training should treat the
 two as a unit.
 
@@ -1272,7 +1272,7 @@ two as a unit.
 
 *This writeup is a structural reading of GPU side-channel
 exposure under AI inference workloads, with overclocking as the
-amplifier. The intent, in the same register the other portfolio
+amplifier. The intent, in the same register the other collection
 pieces use, is not to celebrate the attacks or to indict the
 silicon, but to make the geometry of the threat surface legible
 to a defender who is just arriving at the intersection of
