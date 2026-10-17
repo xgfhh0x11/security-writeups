@@ -1,7 +1,7 @@
 ---
 title: "The Secure Boot Promise"
 subtitle: "Anatomy of a Signature Chain and Its Documented Bypasses"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords: [UEFI Secure Boot, Platform Key, KEK, DB, DBX, BootHole, BlackLotus, BootStomp, authenticated variables, chain of trust, signature verification, bootkit, firmware security, anatomical security read]
 companion_writeup: "SPI-Firmware-Anatomy (the SPI flash and boot-ROM-chain piece; this writeup is its laser instance on the signature-chain side)"

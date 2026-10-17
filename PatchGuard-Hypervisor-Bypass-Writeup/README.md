@@ -1,6 +1,6 @@
 ---
 title: "PatchGuard Hypervisor Bypass: EPT Shadowing, DPC Timer Traps, and VTL Trap Injection Chains"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [PatchGuard, hypervisor, VMX, VT-x, EPT, VMEXIT, DPC, VBS, KDP, SecureKernel, Windows, kernel-security, ring-minus-one]
 license: CC BY 4.0

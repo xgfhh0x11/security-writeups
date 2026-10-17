@@ -1,6 +1,6 @@
 ---
 title: "CVE-2022-37969: How CLFS's Integrity Loop Destroyed Its Own Metadata"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [CVE-2022-37969, CLFS, Windows, kernel, OOB-write, privilege-escalation, metadata-corruption]
 license: CC BY 4.0

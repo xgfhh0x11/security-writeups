@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "CrackArmor: AppArmor Confused Deputy to Kernel LPE — 9 CVEs, 12.6M Systems"
 date: 2026-05-17
 tags: [linux-kernel, apparmor, lsm, confused-deputy, uaf, double-free, stack-exhaustion, kaslr-bypass, lpe]

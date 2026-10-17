@@ -1,7 +1,7 @@
 ---
 title: "The Speculation Barrier Illusion: A Category Error at the ISA/Microarchitecture Boundary"
 subtitle: "What `lfence` actually proves, and why a correct proof can become a false security narrative"
-author: Tyler
+author: Utku Erol
 date: "2026-05-14"
 keywords: [formal verification, speculative execution, CBMC, bounded model checking, lfence, Spectre, side channels, category error, abstraction boundaries]
 ---

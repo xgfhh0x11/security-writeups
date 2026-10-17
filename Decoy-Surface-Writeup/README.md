@@ -1,7 +1,7 @@
 ---
 title: "The Decoy Surface"
 subtitle: "Anatomy of Hypervisor-Mediated Kernel Deception"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords: [hypervisor-mediated deception, SSDT, APC injection, decoy device object, kernel rootkit anatomy, kernel honeypot, IRP dispatcher, handle table, manual export resolver, PatchGuard, HVCI, VBS, vulnerable driver blocklist, kernel deception]
 companion_writeup: "KDF (Kernel-Mode Deception Framework) — the engineering counterpart"

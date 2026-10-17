@@ -1,7 +1,7 @@
 ---
 title: "A Decade of Rowhammer"
 subtitle: "From DRAM Disturbance to Production Mitigation"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords:
   - rowhammer

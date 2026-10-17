@@ -1,6 +1,6 @@
 ---
 title: "Dynamic API Unhooking via VMExit: Hypervisor-Level Ephemeral Syscall Stub Restoration"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [EDR-bypass, VMExit, EPT, hypervisor, syscall-stub, ntdll, inline-hook, VMEXIT, WinDbg, VMX, Windows, AV-evasion, blue-team]
 license: CC BY 4.0

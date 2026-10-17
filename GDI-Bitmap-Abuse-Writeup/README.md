@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "The API That Trusts Its Own State: GDI Bitmap Abuse for Arbitrary Kernel R/W"
 date: 2026-05-17
 tags: [windows-kernel, gdi, surfobj, pvscan0, lpe, token-stealing, kernel-rw-primitive]

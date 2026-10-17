@@ -1,7 +1,7 @@
 ---
 title: "Silicon Is the Adversary"
 subtitle: "Microarchitectural Threats from Spectre to Hertzbleed"
-author: Tyler
+author: Utku Erol
 date: "2026-05-16"
 keywords: [microarchitectural security, Spectre, Meltdown, Foreshadow, Hertzbleed, speculative constant-time, memory deduplication, Rowhammer, side-channel, defensive engineering]
 companion_writeup: "Speculation Barrier Illusion (focused single-instance case study of the same boundary)"

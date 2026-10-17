@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "Ring -1 Memory Control: EPT-Based Hooking via Intel VT-x"
 date: 2026-05-17
 tags: [hypervisor, intel-vtx, ept, vmcs, vmexit, stealth-hook, kernel-rootkit, ring-minus-one]

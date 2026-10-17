@@ -1,7 +1,7 @@
 ---
 title: "The ETW Mirage: When .NET Telemetry Is Repurposed as a Security Boundary"
 subtitle: "A trust-boundary audit of CLR ETW, the two structural bypasses, and the defensive program that has to follow"
-author: Tyler
+author: Utku Erol
 date: "2026-05-14"
 keywords: [ETW, .NET, CLR, EtwEventWrite, COMPlus_ETWEnabled, trust boundary, telemetry, user-mode reporting, AMSI, defensive detection]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "CVE-2022-29582 io_uring UAF: Race Between Flush Path and Timer Path on a Linked Timeout Object"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [CVE-2022-29582, io_uring, UAF, use-after-free, Linux, LPE, container-escape, SLUB, heap-feng-shui, hrtimer, concurrency, kernel-5.17]
 license: CC BY 4.0

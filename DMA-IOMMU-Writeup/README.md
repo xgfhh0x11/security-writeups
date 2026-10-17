@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "Physical Memory as the Ground Truth: DMA, IOMMU, and the Hardware Trust Boundary"
 date: 2026-05-17
 tags: [windows-kernel, dma, iommu, physical-memory, hardware-security, lpe, kernel-driver]

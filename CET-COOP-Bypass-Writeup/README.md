@@ -1,6 +1,6 @@
 ---
 title: "Counterfeit Object-Oriented Programming: Weaponizing CET's Own Trust Model"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [CET, COOP, vtable, IBT, ENDBR64, shadow-stack, Windows, control-flow, exploit]
 license: CC BY 4.0

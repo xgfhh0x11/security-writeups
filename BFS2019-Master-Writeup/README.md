@@ -1,7 +1,7 @@
 ---
 title: "BFS 2019 — Master Exploitation: A Full Chain on eko2019.exe"
 subtitle: "Integer overflow → 16-bit type confusion → gadget-dispatcher hijack → TEB leak → ROP → process continuation"
-author: Tyler
+author: Utku Erol
 date: "2026-05-14"
 keywords: [CTF, BFS2019, eko2019, exploit development, Windows x64, ASLR bypass, TEB leak, stack cookie, ROP, COP, process continuation]
 ---

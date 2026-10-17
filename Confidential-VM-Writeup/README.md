@@ -1,6 +1,6 @@
 ---
 title: "The Confidential Computing Promise — Where SEV-SNP, TDX, and CCA Break"
-author: Tyler
+author: Utku Erol
 date: 2026-05-17
 register: research / anatomical / structural
 cluster: Microarch-Isolation (sibling); extends TEE chapter into the CC era

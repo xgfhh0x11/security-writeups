@@ -1,7 +1,7 @@
 ---
 title: "Anatomy of the BitLocker Stack"
 subtitle: "Kernel Driver, TPM Measurement, and the Encrypted Disk"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords: [BitLocker, fvevol.sys, TPM, PCR measurement, AES-XTS, full-disk encryption, Windows kernel internals, TPM bus sniffing, cold boot, evil maid, key hierarchy, VMK, FVEK]
 cluster_siblings:

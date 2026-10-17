@@ -1,7 +1,7 @@
 ---
 title: "Amplified Leakage"
 subtitle: "How GPU Overclocking Widens the Side-Channel Surface for AI Workloads"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords: [GPU security, side-channel, Hertzbleed, DVFS, AI workloads, model extraction, BarraCUDA, Naghibijouybari, overclocking, multi-tenant GPU, prompt extraction, LLM serving]
 cross_cluster_pair: "Silicon-Adversary (CPU equivalent), ACMM-Writeup (AI-systems equivalent)"

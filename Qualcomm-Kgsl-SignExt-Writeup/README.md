@@ -1,7 +1,7 @@
 ---
 title: "The Alignment Collapse"
 subtitle: "Sign Extension, Invariant Breakdown, and the Epistemology of Silent Overflow in the Qualcomm kgsl Graphics Driver (CVE-2026-21385)"
-author: Tyler
+author: Utku Erol
 date: "2026-05-17"
 keywords: [integer overflow, sign extension, CWE-190, kgsl, Qualcomm graphics, domain narrowing, precondition enforcement, invariant collapse, type confusion, kernel privilege escalation, CISA KEV, emergent inconsistency, cross-layer visibility, CWE-190]
 companion_writeup: "Mathematical-Collapse-Writeup — formal invariant collapse at the hardware-software interface; BFS2019-Master-Writeup — kernel exploitation chain anatomy"

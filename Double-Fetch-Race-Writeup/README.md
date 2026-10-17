@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "The Promise That Expires: Double-Fetch Race Conditions in the Windows Kernel"
 date: 2026-05-17
 tags: [windows-kernel, race-condition, toctou, win32k, bochspwn, lpe, timing-attack]

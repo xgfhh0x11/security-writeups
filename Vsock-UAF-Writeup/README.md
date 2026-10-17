@@ -1,6 +1,6 @@
 ---
 title: "CVE-2025-21756: Vsock Refcount Underflow — When a Lifecycle State Machine Has Two Exit Paths"
-author: Utku
+author: Utku Erol
 date: 2026
 tags: [CVE-2025-21756, vsock, AF_VSOCK, UAF, use-after-free, Linux, LPE, KASLR, ROP, VM-escape]
 license: CC BY 4.0

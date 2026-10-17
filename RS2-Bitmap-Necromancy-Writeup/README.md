@@ -1,4 +1,5 @@
 ---
+author: Utku Erol
 title: "Grave Robbery: UAF Heap Reuse and the RS2 Bitmap Necromancy Technique"
 date: 2026-05-17
 tags: [windows-kernel, uaf, gdi, desktop-heap, win32k, pvscan0, heap-grooming, lpe]

@@ -1,7 +1,7 @@
 ---
 title: "Interrupt Injection Across Confidential VM Boundaries — Heckler and WeSee"
 subtitle: "A laser case study in the asymmetry between guest expectation and hypervisor control of interrupt delivery on AMD SEV-SNP and Intel TDX"
-author: Tyler
+author: Utku Erol
 date: "2026-05-14"
 keywords: [confidential computing, AMD SEV-SNP, Intel TDX, interrupt injection, #VC, GHCB, VMCB, Heckler, WeSee, hypervisor threat model, trusted computing base]
 abstract: |

@@ -1,7 +1,7 @@
 ---
 title: "Where Classical Mathematics Collapses: The Silicon Substrate and the Hardware-Software Boundary"
 subtitle: "An epistemological autopsy of mathematical abstraction in microarchitectural systems"
-author: Tyler
+author: Utku Erol
 date: "2026-05-14"
 keywords: [microarchitecture, formal verification, side channels, Spectre, Meltdown, speculative execution, BTI, hardware-software boundary, epistemology, domain-specific languages]
 ---

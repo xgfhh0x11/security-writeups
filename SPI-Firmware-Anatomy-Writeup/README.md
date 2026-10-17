@@ -1,7 +1,7 @@
 ---
 title: "An Anatomy of Firmware Fault Injection"
 subtitle: "From SPI Bus to Bootloader"
-author: Tyler
+author: Utku Erol
 date: "2026-05-16"
 keywords: [SPI flash, firmware fault injection, voltage glitch, clock glitch, electromagnetic fault injection, boot ROM, UEFI, Intel Boot Guard, BIOS Guard, ChipWhisperer, hardware root of trust, anatomical security read]
 companion_project: "SPIFault (Fault Campaign Description Format) — the schema side of the same research surface"
